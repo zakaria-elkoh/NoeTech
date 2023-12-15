@@ -17,7 +17,7 @@
 </head>
 <body class="bg-black text-white">
 
-    <form class="container w-25 py-5 mt-5" method="POST" action="../../controller/auth/LogInController.php">
+    <form class="container w-25 py-5 mt-5" method="POST" action="../../controller/auth/AuthenticationController.php">
         <div class="mb-3">
           <label for="exampleInputUser" class="form-label">Email:</label>
           <input name="email" type="text" placeholder='Email' class="form-control" id="exampleInputUser" aria-describedby="emailHelp">

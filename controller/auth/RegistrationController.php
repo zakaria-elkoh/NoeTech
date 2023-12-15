@@ -1,20 +1,21 @@
 <?php
-    require '../../config/connection.php';
+    require '../../config/Database.php';
+    require '../../models/User.php';
 
-    class Auth 
+    class RegistrationController 
     {
         public $conn;
 
         public function __construct() {
-            $db = new Connection();
-            $db->connect();
+            $db = new Database();
             $this->conn = $db->getConn();
         }
 
         public function register($full_name, $email, $role, $password) {
-            $stmt = $this->conn->prepare("INSERT INTO user (full_name, email, role, password) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $full_name, $email, $role, $password);
-            $success = $stmt->execute();
+
+            $User = new User();
+            $success = $User->create($full_name, $email, $role, $password);
+            
 
             if ($success) {
                 header('location: ../../views/auth/log-in.php');
@@ -32,7 +33,7 @@
         $role = "user";
         $password = $_POST['password'];
 
-        $auth = new Auth;
-        $auth->register($fullName, $email, $role, $password);
+        $registrationController = new RegistrationController;
+        $registrationController->register($fullName, $email, $role, $password);
     }
 ?>

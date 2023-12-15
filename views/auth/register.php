@@ -13,7 +13,7 @@
 </head>
 <body class="bg-black text-white">
    
-    <form class="container w-25 py-5 mt-5" action="../../controller/auth/RegisterController.php" method="post" >
+    <form class="container w-25 py-5 mt-5" action="../../controller/auth/RegistrationController.php" method="post" >
         <div class="mb-3">
           <label for="exampleInputName" class="form-label">Full name:</label>
           <input name="fullName" type="text" placeholder='Full Name' class="form-control" id="exampleInputName" aria-describedby="emailHelp">
